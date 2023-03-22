@@ -47,10 +47,12 @@ while game_is_on and len(user_answers)<50:
     screen.tracer(1) # focus textinput
 
 #generate states_to_learn.csv
-states_to_learn = []
-for item in state_list:
-    if item not in user_answers:
-        states_to_learn.append(item)
+# states_to_learn = []
+# for item in state_list:
+#     if item not in user_answers:
+#         states_to_learn.append(item)
+
+states_to_learn = [state for state in state_list if state not in user_answers]
 
 df = pandas.DataFrame(states_to_learn)
 df.to_csv('states_to_learn.csv')
